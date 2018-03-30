@@ -41,11 +41,11 @@ app.use(function(err, req, res, next) {
 
 var MongoClient = require('mongodb').MongoClient;
 MongoClient.connect('mongodb://dbuser:dbpwd@ds229549.mlab.com:29549/upskill', function (err, db) {
-  if (err) throw err
+  if (err) throw err;
 
   db.collection('account').find().toArray(function (err, result) {
-    if (err) throw err
-    console.log(result)
+    if (err) throw err;
+    console.log(result);
   })
 });
 
