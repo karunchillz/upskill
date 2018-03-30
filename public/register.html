@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>Register</title>
+
+	 <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+    
+<body>
+    
+ <!--------------------------------------------HEADER---------------------------------------------------------->    
+    
+<nav class="navbar navbar-expand-sm bg-white navbar-light fixed-top">
+<!-- Upskill Logo -->
+    <a class="navbar-brand" href="index.html">
+        <img src="logo_old.png" alt="logo" style="width:70px;">
+    </a>
+
+    <!-- links -->
+    <ul class="navbar-nav mr-auto">
+        <!-- dropdown courses -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-primary font-weight-bold" href="#" id="navbardrop" data-toggle="dropdown">Courses</a>
+            
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Link 1</a>
+                    <a class="dropdown-item" href="#">Link 2</a>
+                    <a class="dropdown-item" href="#">Link 3</a>
+                </div>
+        </li>
+    </ul>
+    <!--END OF dropdown courses -->
+
+    <!-- login and signup links to the right wtih ml-auto -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link text-primary font-weight-bold" href="login.html">Login</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">or</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-primary font-weight-bold" href="register.html">Sign-up</a>
+        </li>
+    </ul>
+<!----------------------------------------END OF HEADER/LINKS---------------------------------------------------------->
+</nav>
+    
+ <!---------------------------------------------Register---------------------------------------------------------->
+    
+   <div class="container py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center mb-5">Register</h2>
+			
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card border-secondary">
+                        <div class="card-header">
+                            <h3 class="mb-0 my-2">Register</h3>
+                        </div>
+						
+						<div class="card-body">
+                            <form class="form" role="form" autocomplete="off" id="formRegister" novalidate="" method="POST">
+                                <div class="form-group">
+                                    <label for="inputName">Name</label>
+                                    <input type="text" class="form-control form-control-lg rounded-0" name="inputName" id="inputName" placeholder="WHAT IS YOUR NAME?" required="">
+                                </div>
+                
+                                <div class="form-group">
+                                    <label for="inputEmail">Email</label>
+                                    <input type="email" class="form-control form-control-lg rounded-0" name=inputEmail id="inputEmail" placeholder="email@gmail.com" required="">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="inputPassword">Password</label>
+                                    <input type="password" class="form-control form-control-lg rounded-0" id="inputPassword" placeholder="password" title="At least 6 characters with letters and numbers" required="">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="inputVerify">Verify</label>
+                                    <input type="password" class="form-control form-control-lg rounded-0" id="inputVerify" placeholder="password (again)" required="">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-lg float-right btnLogin">Register</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+        
+<!--------------------------------------------END OF REGISTER ---------------------------------------------------------->
+    
+ <!----This is the part at teh bottowm of the login, and Karun will you help me with it, it works but I do not think it is right!-------->
+	<div class="row">
+			<div class="container text-center">
+				<ul class="list-inline text-center">
+				   <a class="text-muted" ref="#">Already a member?</a>
+				   <a class="text-primary" href="login.html">Click here to login!</a>
+				</ul>
+			</div>    
+	</div>
+<!-----------------------------------------End of the container py-5----------------------------------------->   
+    
+    </body>
+</html>
