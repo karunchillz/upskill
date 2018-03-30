@@ -1,0 +1,15 @@
+body {
+	background: linear-gradient(to right, #E2E9FD, #F4FCFF);
+    height: 100%;
+    overflow: auto;
+    margin: 2% 5%;
+   
+}
+
+.search-bg{
+	background: linear-gradient(to top right, #8664f7, #020204);
+    height: 100%;
+    overflow: auto;
+    margin: 2% 5%;
+   
+}
