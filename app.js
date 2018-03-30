@@ -48,7 +48,15 @@ MongoClient.connect('mongodb://dbuser:dbpwd@ds229549.mlab.com:29549/upskill', fu
   db.collection('account').find().toArray(function (err, result) {
     if (err) throw err;
     console.log(result);
-  })
+  });
+});
+
+
+app.get('/flow', function(req, res) {
+  db.collection('account').find().toArray(function (err, result) {
+    if (err) throw err;
+    res.send(result);
+  });
 });
 
 module.exports = app;
