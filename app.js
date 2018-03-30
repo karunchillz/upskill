@@ -42,8 +42,6 @@ app.use(function(err, req, res, next) {
 
 
 var MongoClient = require('mongodb').MongoClient;
-
-app.get('/flow', function(req, res) {
 MongoClient.connect('mongodb://dbuser:dbpwd@ds229549.mlab.com:29549/upskill', function (err, db) {
   if (err) throw err;
 
@@ -52,6 +50,6 @@ MongoClient.connect('mongodb://dbuser:dbpwd@ds229549.mlab.com:29549/upskill', fu
     console.log(result);
   });
 });
-});
+
 
 module.exports = app;
