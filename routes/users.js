@@ -70,7 +70,8 @@ router.post('/register', function(req, res, next) {
 
 //form Validator 
 	/*req.checkBody('inputName', 'Name field is required!').notEmpty();
-	req.checkBody('inputEmail', 'email field is required!').isEmail();
+	req.checkBody('inputEmail', 'email field is required!').isEma
+	il();
 	req.checkBody('inputPassword', 'Passwprd is required!').notEmpty();
 	req.checkBody('inputVerify', 'passwords do not match').equals(req.body.inputPassword);
 */
