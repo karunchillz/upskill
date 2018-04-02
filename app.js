@@ -24,7 +24,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-var bodyParser = require('body-parser');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,7 +34,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({extened:true}));
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -102,15 +104,6 @@ app.use(function(req, res, next) {
 });
 
 
-var MongoClient = require('mongodb').MongoClient;
-MongoClient.connect('mongodb://dbuser:dbpwd@ds229549.mlab.com:29549/upskill', function (err, db) {
-  if (err) throw err;
-
-  db.connection('account').find().toArray(function (err, result) {
-    if (err) throw err;
-    console.log(result);
-  });
-});
 
 
 module.exports = app;

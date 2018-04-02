@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var bodyParser = require('body-parser');
 
 var User = require('../Models/users');
 
@@ -67,11 +68,6 @@ router.post('/register', function(req, res, next) {
 
 
 //form Validator 
-	/*req.checkBody('inputName', 'Name field is required!').notEmpty();
-	req.checkBody('inputEmail', 'email field is required!').isEmail();
-	req.checkBody('inputPassword', 'Passwprd is required!').notEmpty();
-	req.checkBody('inputVerify', 'passwords do not match').equals(req.body.inputPassword);
-*/
 
 	req.checkBody('inputName', 'Name field is required!').notEmpty();
 	req.checkBody('inputEmail', 'email field is required!').notEmpty();
@@ -111,21 +107,3 @@ router.post('/register', function(req, res, next) {
   
 module.exports = router; 
 
-
-//var name = req.body.inputName;
-//	var email = req.body.inputEmail;
-	//var password = req.body.inputPassword;
-//	var verifyPw = req.body.inputVerify;
-	//Form Validation 
-/*
-	req.checkBody('name', 'Name field is required!').notEmpty();
-
-	// Check Errors
-	var errors = req.validationErrors();
-
-	if(errors){
-		console.log('errors!');
-	} else{
-		console.log('no Errors');
-	}
-*/
