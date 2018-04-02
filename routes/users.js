@@ -1,7 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var multer = require('multer');
-var upload = multer({dest: './uploads'});
 var passport = require('passport');
 var LocalStrategy = require('passport-http').Strategy;
 
@@ -70,8 +68,7 @@ router.post('/register', function(req, res, next) {
 
 //form Validator 
 	/*req.checkBody('inputName', 'Name field is required!').notEmpty();
-	req.checkBody('inputEmail', 'email field is required!').isEma
-	il();
+	req.checkBody('inputEmail', 'email field is required!').isEmail();
 	req.checkBody('inputPassword', 'Passwprd is required!').notEmpty();
 	req.checkBody('inputVerify', 'passwords do not match').equals(req.body.inputPassword);
 */
