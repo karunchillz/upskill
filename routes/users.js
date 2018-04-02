@@ -3,7 +3,7 @@ var router = express.Router();
 var multer = require('multer');
 var upload = multer({dest: './uploads'});
 var passport = require('passport');
-var LocalStrategy = require('passport-http').Strategy;
+var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../Models/users');
 
@@ -21,7 +21,7 @@ router.get('/login', function(req, res, next) {
 });
 
 router.post('/login',
-  passport.authenticate('http',{failureRedirect:'/users/login', failureflash: 'Invalid Username or Password'}),
+  passport.authenticate('local',{failureRedirect:'/users/login', failureflash: 'Invalid Username or Password'}),
   function(req, res) {
 	req.flash('success','You are now logged in:)');
 	res.redirect('/');
