@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var createError = require('http-errors');
 var favicon = require('serve-favicon');
-var bodyParcer = require('body-parser');
+var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
@@ -106,7 +106,7 @@ var MongoClient = require('mongodb').MongoClient;
 MongoClient.connect('mongodb://dbuser:dbpwd@ds229549.mlab.com:29549/upskill', function (err, db) {
   if (err) throw err;
 
-  db.collection('account').find().toArray(function (err, result) {
+  db.connection('account').find().toArray(function (err, result) {
     if (err) throw err;
     console.log(result);
   });
