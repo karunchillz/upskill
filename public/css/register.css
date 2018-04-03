@@ -1,0 +1,56 @@
+.register {
+	background: linear-gradient(to right, #E2E9FD, #F4FCFF);
+    height: 100%;
+    overflow: auto;
+    margin: 2% 5%;
+   
+}
+
+
+.register .navbar {
+  margin-bottom: 0;
+}
+
+.register .navbar-brand {
+    position: relative;
+    background: url('../images/logo_old.png') no-repeat scroll center center / contain;
+    width: 170px;
+    left: 15px;
+    background-size: contain;
+}
+
+.register .navbar .pull-right li a{
+  color: #6874EE !important;
+}
+
+.register .nav>li {
+  display: inline-block;
+ }
+
+
+.register footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: linear-gradient(to right, #D7DFFF , #EAF9FF);
+}
+
+.register footer p {
+  margin-bottom: .25rem;
+}
+
+@media screen and (max-width:768px)
+{
+  .register .navbar-brand {
+    width: 75px;
+  }
+  .register .hide-small{
+    display: none;
+  }  
+}
+
+@media (min-width: 992px) {
+  .register .col-md-3 {
+      width: 30%;
+  }
+}
+

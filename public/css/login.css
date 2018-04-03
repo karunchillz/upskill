@@ -1,0 +1,56 @@
+.login {
+	background: linear-gradient(to right, #E2E9FD, #F4FCFF);
+    height: 100%;
+    overflow: auto;
+    margin: 2% 5%;
+   
+}
+
+
+.login .navbar {
+  margin-bottom: 0;
+}
+
+.login .navbar-brand {
+    position: relative;
+    background: url('../images/logo_old.png') no-repeat scroll center center / contain;
+    width: 170px;
+    left: 15px;
+    background-size: contain;
+}
+
+.login .navbar .pull-right li a{
+  color: #6874EE !important;
+}
+
+.login .nav>li {
+  display: inline-block;
+ }
+
+
+.login footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: linear-gradient(to right, #D7DFFF , #EAF9FF);
+}
+
+.login footer p {
+  margin-bottom: .25rem;
+}
+
+@media screen and (max-width:768px)
+{
+  .login .navbar-brand {
+    width: 75px;
+  }
+  .login .hide-small{
+    display: none;
+  }  
+}
+
+@media (min-width: 992px) {
+  .login .col-md-3 {
+      width: 30%;
+  }
+}
+
