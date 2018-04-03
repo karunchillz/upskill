@@ -9,6 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="./css/home.css" rel="stylesheet">
   <link rel="stylesheet" href="stylesheets/style-login.css">
     
 </head>
@@ -16,45 +17,25 @@
 <body>
     
  <!--------------------------------------------HEADER---------------------------------------------------------->    
-    
-<nav class="navbar navbar-expand-sm bg-white navbar-light fixed-top">
-<!-- Upskill Logo -->
-    <a class="navbar-brand" href="index.html">
-        <img src="images/logo_old.png" alt="logo" style="width:70px;">
-    </a>
-
-    <!-- links -->
-    <ul class="navbar-nav mr-auto">
-        <!-- dropdown courses -->
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-primary font-weight-bold" href="#" id="navbardrop" data-toggle="dropdown">Courses</a>
-            
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Link 1</a>
-                    <a class="dropdown-item" href="#">Link 2</a>
-                    <a class="dropdown-item" href="#">Link 3</a>
-                </div>
-        </li>
-    </ul>
-    <!--END OF dropdown courses -->
-
-    <!-- login and signup links to the right wtih ml-auto -->
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link text-primary font-weight-bold" href="login.html">Login</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#">or</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link text-primary font-weight-bold" href="register.html">Sign-up</a>
-        </li>
-    </ul>
-<!----------------------------------------END OF HEADER/LINKS---------------------------------------------------------->
-</nav>
-<!------------------------------------------LOGIN FORM----------------------------------------------------------->
+    <nav class="navbar" id="head-navbar">
+      <div class="container-fluid">
+        <a href="home.html" class="navbar-brand"></a>
+        <ul class="nav navbar-nav hide-small">
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Courses <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Computer Science</a></li>
+            <li><a href="#">Business</a></li>
+            <li><a href="#">Health</a></li>
+          </ul>
+          </li>
+        </ul>       
+        <ul class="nav navbar-nav pull-right">
+          <li><a href="https://up-skill.herokuapp.com/register.html"><span class="glyphicon glyphicon-user"></span> <span class="hide-small">Sign Up</span></a></li>
+          <li><a href="https://up-skill.herokuapp.com/login.html"><span class="glyphicon glyphicon-log-in"></span> <span class="hide-small">Login</span></a></li>
+        </ul>
+      </div>
+    </nav>
+  <!------------------------------------------LOGIN FORM----------------------------------------------------------->
 
 <div class="container py-5">
 	<div class="row">
@@ -106,7 +87,12 @@
         </ul>
     </div>    
 </div>
- 
+     <!-- Footer -->
+    <footer class="text-center">
+      <div class="container">
+        <p>&copy; Designed by Team 7</p>
+      </div>
+    </footer>  
 </body>
 
 </html>
