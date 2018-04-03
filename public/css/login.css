@@ -1,9 +1,7 @@
-.login {
-	background: linear-gradient(to right, #E2E9FD, #F4FCFF);
-    height: 100%;
-    overflow: auto;
-    margin: 2% 5%;
-   
+
+.login a {
+  color: #6874EE;
+  
 }
 
 
@@ -27,7 +25,19 @@
   display: inline-block;
  }
 
+.login .main_content{
+	background: linear-gradient(to right, #E2E9FD, #F4FCFF);
+    overflow: auto;
+	padding-right: 2rem;
+    padding-left: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+	padding-top: auto;
+	padding-bottom: auto;
+	margin-bottom: 0;
+}
 
+ 
 .login footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
