@@ -1,9 +1,9 @@
-.login .main_content{
+.login {
 	background: linear-gradient(to right, #E2E9FD, #F4FCFF);
     height: 100%;
     overflow: auto;
-    margin: 2% 5%;
-  
+    /*margin: 2% 5%;
+  */ 
 }
 
 
