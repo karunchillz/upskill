@@ -3,11 +3,12 @@ extends layout
 block content 
  .container.py-5
   .row
-    // ----------col= column, md= medium devices, 12 =??? - screen width equal to or greater than 768px-----------
     .col-md-12
       h2.text-center.mb-5 Login Form
+      if errors
+        each error, i in errors
+         div.alert.alert-danger #{error.msg}
       form(method='post', action='/users/login')
-      // --centering the text, texxt is white, why mb-5??---- ---
   .row
     .col-md-6.mx-auto
       // card with form for login
@@ -18,14 +19,14 @@ block content
           form#formLogin.form(role='form', autocomplete='off', novalidate='', method='POST')
             .form-group
               label(for='inputEmail') Email
-              input#uname.form-control.form-control-lg.rounded-0(type='text', name='inputEmail', required='')
+              input#inputEmail.form-control.form-control-lg.rounded-0(type='text', name='inputEmail', required='')
               .invalid-feedback Oops, you missed this one.
             .form-group
-              // --why no for="pwd" here?----
               label(for='inputPassword') Password
-              input#pwd.form-control.form-control-lg.rounded-0(type='password', name='inputPassword', required='', autocomplete='new-password')
+              input#inputPassword.form-control.form-control-lg.rounded-0(type='password', name='inputPassword', required='', autocomplete='new-password')
               .invalid-feedback Enter your password too!
-            button.btn.btn-primary.btn-lg.float-right.btnLogin(type='submit') Sign in
+            .form-group
+              button.btn.btn-primary.btn-lg.float-right.btnLogin(type='submit', name='submit', value='Login') Register
    .row
   .container.text-center  
     ul.list-inline.text-center

@@ -4,7 +4,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var bodyParser = require('body-parser');
 
-var User = require('../Models/users');
+var User = require('../Models/user');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -43,7 +43,7 @@ passport.use(new LocalStrategy(function(inputEmail, inputPassword, done){
 		if(!user){
 			return done(null, false, {message: 'Unknown User'});
 		}
-		User.createPassword(inputPassword, user.inputPassword, function(err, isMatch){
+		User.comparePassword(inputPassword, user.inputPassword, function(err, isMatch){
 			if(err) return done(err);
 			if(isMatch){
 				return done(null,user);
@@ -77,8 +77,7 @@ router.post('/register', function(req, res, next) {
 
 	var errors = req.validationErrors();
 
- 	
-
+ 
 	if(errors){
 		res.render('register', {
 			errors: errors
@@ -97,7 +96,6 @@ router.post('/register', function(req, res, next) {
 		});
 
 		req.flash('success','Congrats You are registerd :)');
-
 		res.location('/');
 		res.redirect('/');
 	}

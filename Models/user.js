@@ -5,6 +5,7 @@ mongoose.connect('mongodb://dbuser:dbpwd@ds229549.mlab.com:29549/upskill');
 
 var db = mongoose.connection;
 
+//The User Shema 
 var UserSchema = mongoose.Schema({
 	iunputName: {
 		type: String,
@@ -12,7 +13,6 @@ var UserSchema = mongoose.Schema({
 	},
 	inputEmail: {
 		type: String
-
 	},
 	inputPassword: {
 		type: String
@@ -20,20 +20,20 @@ var UserSchema = mongoose.Schema({
 
 })
 
-var User = module.exports = mongoose.model('Users', UserSchema);
+var User = module.exports = mongoose.model('users', UserSchema);
 
-module.exports.getUserById = function(){
+module.exports.getUserById = function(id, callback){
 	User.findById(id,callback);
 
 }
 
-module.exports.getUerByEmail = function(inputEmail, callback){
+module.exports.getUserByEmail = function(inputEmail, callback){
 	var query = {inputEmail: inputEmail};
-	User.findone(query,callback);
+	User.findOne(query,callback);
 }
 
-module.exports.comparePassword = function(candidatePassword, hash, callback){
-	bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
+module.exports.comparePassword = function(inputPassword, hash, callback){
+	bcrypt.compare(inputPassword, hash, function(err, isMatch) {
 		callback(null, isMatch);
 	});
 }
