@@ -69,25 +69,26 @@ html(lang="en")
           li
             a(href="#") Health
         .card-group
-          .card.col-md-3.col-sm-12
-            .container-fluid
-              .row
-                .card-subtitle.col-sm-8.text-left Stanford University
-                .card-subtitle.col-sm-4.text-right Coursera
-              h4.card-title
-                a(href="#") Machine Learning
-              br
-              .row
-                .card-text.col-sm-6.text-left
-                  span.first-letter 26.4k
-                  span Students
-                .card-text.col-sm-6.text-right
-                  span.fa.fa-star.checked
-                  span.fa.fa-star.checked
-                  span.fa.fa-star.checked
-                  span.fa.fa-star
-                  span.fa.fa-star
-                  p 327 reviews
+          each course, i in courses
+            .card.col-md-3.col-sm-12
+              .container-fluid
+                .row
+                  .card-subtitle.col-sm-8.text-left #{course.institution}
+                  .card-subtitle.col-sm-4.text-right #{course.platform}
+                h4.card-title
+                  a(href="#{course.url}") #{course.name}
+                br
+                .row
+                  .card-text.col-sm-6.text-left
+                    span.first-letter #{course.studentsInterested}k
+                    span Students
+                  .card-text.col-sm-6.text-right
+                    span.fa.fa-star.checked
+                    span.fa.fa-star.checked
+                    span.fa.fa-star.checked
+                    span.fa.fa-star
+                    span.fa.fa-star
+                    p #{course.reviews} reviews
     // Footer
     footer.text-center
       .container
