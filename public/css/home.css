@@ -1,8 +1,12 @@
-.navbar {
+.home a {
+  color: #6874EE;
+}
+
+.home .navbar {
   margin-bottom: 0;
 }
 
-.navbar-brand {
+.home .navbar-brand {
     position: relative;
     background: url('../images/logo_old.png') no-repeat scroll center center / contain;
     width: 170px;
@@ -10,62 +14,50 @@
     background-size: contain;
 }
 
-.navbar .navbar-right li a{
+.home .navbar .pull-right li a{
   color: #6874EE !important;
 }
 
-.nav>li {
+.home .nav>li {
   display: inline-block;
  }
 
-.jumbotron {
+.home .jumbotron {
   padding-top: 6rem;
   padding-bottom: 6rem;
   margin-bottom: 0;
   background: linear-gradient(to right, #6552BB , #1B1733);
 }
 
-.jumbotron p:last-child {
-  margin-bottom: 0;
-}
-
-.jumbotron-heading {
-  font-weight: 300;
-}
-
-.jumbotron .container {
-  max-width: 40rem;
-}
-
-.jumbotron .search-box {
+.home .jumbotron .search-box {
   color: white; 
   font-size: 1.2em; 
   padding: 5% 10%;
 }
 
-.btn-group .btn {
+.home .btn-group .btn {
 	margin:10px;
 	border-radius: 20px !important;
 	background-color: #635C82;
 	border:none;
 }
 
-.courses {
+.home .courses {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
 
-.topic-list li {
+.home .topic-list li {
 	font-size: 1.2em;
 }
 
-.topic-list li.active {
+.home .topic-list li.active {
 	color: #6874EE;
 	text-decoration: underline;
 	padding:1rem;
 }
 
-.card {
+.home .card {
   padding: 1rem;
   margin-bottom: 2rem;
   margin-right: 2rem;
@@ -73,47 +65,47 @@
   box-shadow: 2px 2px 6px #F0F8FF;
 }
 
-.checked {
+.home .checked {
     color: orange;
 }
 
-.card-title {
+.home .card-title {
   padding-bottom: 2rem;
   color: #6874EE;
 }
 
-.card-subtitle {
+.home .card-subtitle {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.first-letter {
+.home .first-letter {
   font-size: 1.4em;
 }
 
-footer {
+.home footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
   background: linear-gradient(to right, #D7DFFF , #EAF9FF);
 }
 
-footer p {
+.home footer p {
   margin-bottom: .25rem;
 }
 
 @media screen and (max-width:768px)
 {
-  .navbar-brand {
+  .home .navbar-brand {
     width: 75px;
   }
-  .hide-small{
+  .home .hide-small{
     display: none;
   }  
 }
 
 @media (min-width: 992px) {
-  .col-md-3 {
+  .home .col-md-3 {
       width: 30%;
   }
 }
