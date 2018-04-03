@@ -14,6 +14,10 @@
   color: #6874EE !important;
 }
 
+.nav>li {
+  display: inline-block;
+ }
+
 .jumbotron {
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -31,6 +35,12 @@
 
 .jumbotron .container {
   max-width: 40rem;
+}
+
+.jumbotron .search-box {
+  color: white; 
+  font-size: 1.2em; 
+  padding: 5% 10%;
 }
 
 .btn-group .btn {
@@ -56,8 +66,6 @@
 }
 
 .card {
-  float: left;
-  width: 30%;
   padding: 1rem;
   margin-bottom: 2rem;
   margin-right: 2rem;
@@ -92,4 +100,20 @@ footer {
 
 footer p {
   margin-bottom: .25rem;
+}
+
+@media screen and (max-width:768px)
+{
+  .navbar-brand {
+    width: 75px;
+  }
+  .hide-small{
+    display: none;
+  }  
+}
+
+@media (min-width: 992px) {
+  .col-md-3 {
+      width: 30%;
+  }
 }
