@@ -82,10 +82,11 @@ html(lang="en")
                     span.first-letter #{course.studentsInterested}k
                     span Students
                   .card-text.col-sm-6.text-right
-                    for(var i=0; i<course.rating; i++)
-                      span.fa.fa-star.checked
-                    for(var i=course.rating; i<5; i++)
-                      span.fa.fa-star
+                    span.fa.fa-star.checked
+                    span.fa.fa-star.checked
+                    span.fa.fa-star.checked
+                    span.fa.fa-star.checked
+                    span.fa.fa-star.checked                    
                     p #{course.reviews} reviews
     // Footer
     footer.text-center
