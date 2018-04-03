@@ -8,8 +8,13 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET home page. */
-router.get('/test', function(req, res, next) {
+router.get('/populate', function(req, res, next) {
   courseController.populate(req, res, next);
+});
+
+/* GET home page. */
+router.get('/test', function(req, res, next) {
+  courseController.findTopCourses(req, res, next);
 });
 
 module.exports = router;
