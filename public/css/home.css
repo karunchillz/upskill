@@ -110,7 +110,7 @@
   }
 }
 
-.login body {
+.login {
 	background: linear-gradient(to right, #E2E9FD, #F4FCFF);
     height: 100%;
     overflow: auto;
@@ -118,7 +118,7 @@
    
 }
 
-.register body {
+.register {
 	background: linear-gradient(to right, #E2E9FD, #F4FCFF);
     height: 100%;
     overflow: auto;
