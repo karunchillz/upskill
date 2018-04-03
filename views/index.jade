@@ -82,11 +82,10 @@ html(lang="en")
                     span.first-letter #{course.studentsInterested}k
                     span Students
                   .card-text.col-sm-6.text-right
-                    each val in [1,2,3,4,5]
-                      if val <= course.rating
-                        span.fa.fa-star.checked
-                      else
-                        span.fa.fa-star
+                    for(var i=0; i<course.rating; i++)
+                      span.fa.fa-star.checked
+                    for(var i=course.rating; i<5; i++)
+                      span.fa.fa-star
                     p #{course.reviews} reviews
     // Footer
     footer.text-center
