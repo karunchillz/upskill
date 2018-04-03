@@ -28,13 +28,11 @@
 .register .main_content{
 	background: linear-gradient(to right, #E2E9FD, #F4FCFF);
     overflow: auto;
-	padding-right: 2rem;
-    padding-left: 2rem;
-    margin-right: auto;
-    margin-left: auto;
-	padding-top: auto;
-	padding-bottom: auto;
-	margin-bottom: 0;
+	display: block;
+	padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    padding-bottom:0;
+	margin:auto; 
 }
 
  
@@ -43,6 +41,19 @@
   padding-bottom: 3rem;
   background: linear-gradient(to right, #D7DFFF , #EAF9FF);
 }
+
+.register .col-centered{
+	float:none;
+	margin: 0 auto;
+}
+
+.register .card{
+	padding:1rem;
+	border-style:solid;
+	border-width:0.15rem;
+	border-radius:0.5rem;
+}
+
 
 .register footer p {
   margin-bottom: .25rem;
