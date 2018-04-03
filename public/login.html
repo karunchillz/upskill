@@ -6,9 +6,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!---<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <!---<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>---->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="./css/login.css" rel="stylesheet">
  <!---#<link rel="stylesheet" href="stylesheets/style-login.css">--->
@@ -38,22 +38,26 @@
     </nav>
   <!------------------------------------------LOGIN FORM----------------------------------------------------------->
 
+
+<section class="main_content">
 <div class="container py-5 center">
+
 	<div class="row">
 <!------------col= column, md= medium devices, 12 =??? - screen width equal to or greater than 768px------------->
 		<div class="col-md-12">
                 
-				<h2 class="text-center mb-5">Login Form</h2> <!----centering the text, texxt is white, why mb-5??---- ----->
+				<h2 class="text-center mb-5">Welcome back!</h2> <!----centering the text, texxt is white, why mb-5??---- ----->
 				
 			<div class="row">
 				<div class="col-md-6 mx-auto">
                     <!-- card with form for login -->
-                    <div class="card border-secondary">
-                        <div class="card-header">
+                    <div class="card">
+                        
+                        <div class="card-body">
+						<div class="card-title">
                             <h3 class="mb-0 my-2">Login</h3>
                         </div>
 
-                        <div class="card-body">
                             <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
                                 <div class="form-group">
                                     <label for="uname">Username</label>
@@ -69,7 +73,8 @@
 
                                 <button type="submit" class="btn btn-primary btn-lg float-right btnLogin">Sign in</button>
                             </form>
-                        </div>
+							
+			             </div>
                     </div>
 				</div>
 			</div>   
@@ -83,11 +88,12 @@
 <div class="row">
     <div class="container text-center">
         <ul class="list-inline text-center">
-           <a class="text-muted" ref="#">New to UpSkill?</a>
-           <a class="text-primary" href="register.html">Create a free account</a>
+           <h5 >New to UpSkill?</h5>
+		   <a class="text-primary" href="register.html">Create a free account</a>
         </ul>
     </div>    
 </div>
+</section>
      <!-- Footer -->
     <footer class="text-center">
       <div class="container">
