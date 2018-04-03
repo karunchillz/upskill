@@ -22,9 +22,6 @@ module.exports = {
       url: 'https://www.coursera.org/learn/machine-learning',
       classification: 'Computer Science',
       tags: ['machine', 'learning', 'computer', 'science'],
-      startDate: ,
-      duration: ,
-      effort: ,
       studentsInterested: 26.7,
       rating: 5,
       review: 327
