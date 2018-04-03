@@ -4,17 +4,12 @@ var courseController = require('../controllers/course.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  courseController.findTopCourses(req, res, next);
 });
 
 /* GET home page. */
 router.get('/populate', function(req, res, next) {
   courseController.populate(req, res, next);
-});
-
-/* GET home page. */
-router.get('/test', function(req, res, next) {
-  courseController.findTopCourses(req, res, next);
 });
 
 module.exports = router;
