@@ -2,11 +2,11 @@ var CourseModel = require('../Models/course.js');
 
 module.exports = {
   findTopCourses: function(req, res, next){
-    const criteria = '{}';//{classification: classification || 'Business'};
+    const criteria = {};//{classification: classification || 'Business'};
     CourseModel.find(criteria, function(err, courses){
       if(err) {
           return res.status(500).json({
-              message: 'Error getting course.'
+              message: 'Error getting course.'+err
           });
       }
       return res.json(courses);
