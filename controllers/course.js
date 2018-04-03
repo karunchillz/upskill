@@ -2,7 +2,6 @@ var CourseModel = require('../Models/course.js');
 
 module.exports = {
   findTopCourses: function(req, res, next){
-    var classification = req.params.classification;
     const criteria = '{}';//{classification: classification || 'Business'};
     CourseModel.find(criteria, function(err, courses){
       if(err) {
