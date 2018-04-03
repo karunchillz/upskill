@@ -9,7 +9,7 @@ module.exports = {
               message: 'Error getting course.'+err
           });
       }
-      return res.json(courses);
+      res.render('test', { courses: courses });
     });
   },
 
