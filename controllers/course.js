@@ -25,7 +25,7 @@ module.exports = {
       studentsInterested: 26.7,
       rating: 5,
       review: 327
-    });
+    };
     CourseModel.create(courseData, function(err, course){
       if(err) {
           return res.status(500).json({
