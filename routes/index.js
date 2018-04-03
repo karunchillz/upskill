@@ -1,17 +1,15 @@
 var express = require('express');
 var router = express.Router();
+var courseController = require('../controllers/course.js');
 
 /* GET home page. */
-router.get('/', ensureAuthenticated, function(req, res, next) {
-  res.render('index', { title: 'Members' });
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
 });
 
-
-function ensureAuthenticated(req, res, next){
-	if(req.isAuthenticated()){
-		return next();
-	}
-	res.redirect('/users/login');
-}
+/* GET home page. */
+router.get('/test', function(req, res, next) {
+  courseController.populate(req, res, next);
+});
 
 module.exports = router;
