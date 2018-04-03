@@ -58,7 +58,7 @@ html(lang="en")
     // Popular Courses
     .courses
       .container
-        h2 Popular Online Courses #{courses}
+        h2 Popular Online Courses
         ul.list-inline.topic-list
           li.active
             a(href="#") All
@@ -69,7 +69,7 @@ html(lang="en")
           li
             a(href="#") Health
         .card-group
-          each course, i in courses
+          each course in courses
             .card.col-md-3.col-sm-12
               .container-fluid
                 .row
