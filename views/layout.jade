@@ -1,7 +1,48 @@
 doctype html
-html
+html(lang='en')
   head
-    title= title
+    title Login
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    // ------------------------------------------HEADER--------------------------------------------------------
+    .container 
+     nav.navbar.navbar-expand-sm.bg-white.navbar-light.navbar-static-top.fixed-top
+      // Upskill Logo
+      a.navbar-brand(href='#')
+        img(src='/images/logo_old.png', alt='logo', style='width:70px;')
+      // links
+      ul.navbar-nav.mr-auto
+        // dropdown courses
+        li.nav-item.dropdown
+          a#navbardrop.nav-link.dropdown-toggle.text-primary.font-weight-bold(href='#', data-toggle='dropdown') Courses
+          .dropdown-menu
+            a.dropdown-item(href='#') Link 1
+            a.dropdown-item(href='#') Link 2
+            a.dropdown-item(href='#') Link 3
+      // END OF dropdown courses
+      // login and signup links to the right wtih ml-auto
+      ul.navbar-nav.ml-auto
+        li.nav-item(class=(title == 'Login' ? 'active' : ''))
+          a.nav-link.text-primary.font-weight-bold(href='/users/login') Login
+        li.nav-item(class=(title == 'Members' ? 'active' : ''))
+          a.nav-link.text-primary.font-weight-bold(href='/') Members
+        li.nav-item
+          a.nav-link.disabled(href='#') or
+        li.nav-item(class=(title == 'Register' ? 'active' : ''))
+          a.nav-link.text-primary.font-weight-bold(href='/users/register') Sign-up
+   .container
+   .row
+   .container.py-5.text-center
+    ul.list-inline.text-center
+    //!= messages()
+   .container
     block content
+
+   script(src='https://ajax.googleapis.com/ajax/libs/jquery.1.11.1/jquery.in.js')
+   script(src='js/bootstrap.js')
