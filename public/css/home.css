@@ -94,6 +94,14 @@
   margin-bottom: .25rem;
 }
 
+.home .grow { 
+  transition: all .2s ease-in-out; 
+}
+
+.home .grow:hover { 
+  transform: scale(1.1); 
+}
+
 @media screen and (max-width:768px)
 {
   .home .navbar-brand {
