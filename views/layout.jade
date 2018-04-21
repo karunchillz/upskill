@@ -26,7 +26,7 @@ html(lang="en")
               li
                 a(href="#") Health
         ul.nav.navbar-nav.pull-right
-          if session.user
+          if (typeof(session.user) !== 'undefined')
             li
               a(href="https://up-skill.herokuapp.com/profile")
                 span.glyphicon.glyphicon-user
