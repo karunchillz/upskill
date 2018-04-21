@@ -20,9 +20,7 @@ module.exports = {
     if(errors){
       console.log('inside error');
       console.log(errors);
-      res.render('register', {
-        errors: errors
-      });
+      res.render('register', { errors: errors });
     }else{
       console.log('inside error else');
       var newUser = {
@@ -38,8 +36,7 @@ module.exports = {
         };
         console.log(user)
       });
-      req.flash('success','Congrats You are registerd :)');
-      res.location('/');
+      req.session.user = newUser;
       res.redirect('/');
     }
   },
@@ -65,8 +62,7 @@ module.exports = {
             errors: 'Username/Passwprd does not match'
           });
         }   
-        req.flash('success','Congrats You are registerd :)');
-        res.location('/');
+        req.session.user = user;
         res.redirect('/');        
       }
     });

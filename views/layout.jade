@@ -26,14 +26,24 @@ html(lang="en")
               li
                 a(href="#") Health
         ul.nav.navbar-nav.pull-right
-          li
-            a(href="https://up-skill.herokuapp.com/register")
-              span.glyphicon.glyphicon-user
-              span.hide-small Sign Up
-          li
-            a(href="https://up-skill.herokuapp.com/login")
-              span.glyphicon.glyphicon-log-in
-              span.hide-small Login
+          if session.user
+            li
+              a(href="https://up-skill.herokuapp.com/profile")
+                span.glyphicon.glyphicon-user
+                span.hide-small #{session.user.name}          
+            li
+              a(href="https://up-skill.herokuapp.com/logout")
+                span.glyphicon.glyphicon-log-in
+                span.hide-small Logout
+          else
+            li
+              a(href="https://up-skill.herokuapp.com/register")
+                span.glyphicon.glyphicon-user
+                span.hide-small Sign Up
+            li
+              a(href="https://up-skill.herokuapp.com/login")
+                span.glyphicon.glyphicon-log-in
+                span.hide-small Login
     // Content
     block content
     // Footer
