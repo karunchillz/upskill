@@ -31,11 +31,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // Handle sessions
-app.use(session({
-    secret:'secret',
-    saveUninitialized: true,
-    resave: true
-}));
+app.use(session({secret:'secret'}));
 app.use(function(req,res,next){
     res.locals.session = req.session;
     next();

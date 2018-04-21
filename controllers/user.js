@@ -36,7 +36,7 @@ module.exports = {
         };
         console.log(user)
       });
-      req.session.user = newUser;
+      req.session.user = newUser.name;
       res.redirect('/');
     }
   },
@@ -62,7 +62,7 @@ module.exports = {
             errors: 'Username/Passwprd does not match'
           });
         }   
-        req.session.user = user;
+        req.session.user = user.name;
         res.redirect('/');        
       }
     });
