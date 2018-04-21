@@ -1,5 +1,4 @@
 var UserModel = require('../models/user.js');
-var bcrypt = require('bcryptjs');
 
 module.exports = {
   register: function(req, res, next){
@@ -36,6 +35,7 @@ module.exports = {
         };
         console.log(user)
       });
+      console.log(req.session);
       req.session.user = newUser.name;
       res.redirect('/');
     }
@@ -61,7 +61,8 @@ module.exports = {
           res.render('login', {
             errors: 'Username/Passwprd does not match'
           });
-        }   
+        }  
+        console.log(req.session); 
         req.session.user = user.name;
         res.redirect('/');        
       }
