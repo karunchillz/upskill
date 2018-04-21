@@ -13,35 +13,27 @@ mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-// Router logic
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
 // Express setup
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // Handle sessions
-app.use(session({
-    secret:'secret',
-    saveUninitialized: true,
-    resave: true
-}));
+app.use(cookieParser());
+app.use(session({secret:'secret', saveUninitialized: true, resave: true}));
 app.use(function(req,res,next){
     res.locals.session = req.session;
     next();
 });
 
 // Router location
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
