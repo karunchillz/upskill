@@ -25,14 +25,17 @@ module.exports = {
       });
     }else{
       console.log('inside error else');
-      var newUser = new UserModel({
+      var newUser = {
         name: name,
         email: email,
         password: password
-      });
+      };
       console.log(newUser);
-      UserModel.save(newUser, function(err, user){
-        if(err) {throw err; console.log(err);};
+      UserModel.create(newUser, function(err, user){
+        if(err) {
+          console.log(err);
+          throw err;
+        };
         console.log(user)
       });
       req.flash('success','Congrats You are registerd :)');
