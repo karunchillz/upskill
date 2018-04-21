@@ -41,11 +41,20 @@ module.exports = {
     var criteria = {email: email};
     CourseModel.findOne(criteria, function(err, user){
       if(err) {
-          return res.status(500).json({
-              message: 'Error getting course.'+err
+        res.render('login', {
+          errors: 'Username does not exist'
+        });
+      }else{
+        var pass = user.password;
+        if(password != pass){
+          res.render('login', {
+            errors: 'Username/Passwprd does not match'
           });
+        }   
+        req.flash('success','Congrats You are registerd :)');
+        res.location('/');
+        res.redirect('/');        
       }
-      return res.json(user);
     });
   }  
 };
