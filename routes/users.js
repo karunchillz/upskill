@@ -5,7 +5,7 @@ var expressValidator = require('express-validator');
 var LocalStrategy = require('passport-local').Strategy;
 var bodyParser = require('body-parser');
 
-var User = require('../Models/user');
+var User = require('../models/user');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

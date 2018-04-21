@@ -1,4 +1,4 @@
-var CourseModel = require('../Models/course.js');
+var CourseModel = require('../models/course.js');
 
 module.exports = {
   findTopCourses: function(req, res, next){
@@ -22,7 +22,14 @@ module.exports = {
       classification: 'Computer Science',
       studentsInterested: 26.7,
       rating: 5,
-      review: 327
+      review: 327,
+      effort: '5-7 hours a week',
+      duration: '11 weeks long',
+      startDate: new Date('Mon Apr 16 2018 00:00:00 GMT-0500 (CDT)'),
+      selfPaced: false,
+      withCertificate: false,
+      cost: 0,
+      tags: ['machine', 'learning', 'machine learning']
     },{
       name: 'CS50\'s Introduction to Computer',
       institution: 'Harvard University',
@@ -31,7 +38,11 @@ module.exports = {
       classification: 'Computer Science',
       studentsInterested: 15.7,
       rating: 4,
-      review: 68
+      review: 68,
+      selfPaced: true,
+      withCertificate: true,
+      cost: 0,
+      tags: ['computer', 'introduction', 'computer science', 'introduction to computer']      
     },{
       name: 'What is Mind?',
       institution: 'University of Cape Town',
@@ -40,7 +51,14 @@ module.exports = {
       classification: 'Health',
       studentsInterested: 9.4,
       rating: 5,
-      review: 113
+      review: 113,
+      effort: '3 hours a week',
+      duration: '6 weeks long',
+      startDate: new Date('Mon May 28 2018 00:00:00 GMT-0500 (CDT)'),
+      selfPaced: false,
+      withCertificate: true,
+      cost: 0,
+      tags: ['mind', 'mind working', 'what is mind']
     },{
       name: 'Moralities of Everyday Life',
       institution: 'Yale University',
@@ -49,7 +67,14 @@ module.exports = {
       classification: 'Health',
       studentsInterested: 10.8,
       rating: 5,
-      review: 37
+      review: 37,
+      effort: '6-14 hours a week',
+      duration: '6 weeks long',
+      startDate: new Date('Mon Apr 23 2018 00:00:00 GMT-0500 (CDT)'),
+      selfPaced: false,
+      withCertificate: true,
+      cost: 0,
+      tags: ['moralities', 'life', 'moralities of everyday life']      
     },{
       name: 'Bitcoin and Cryptocurrency',
       institution: 'Princeton University',
@@ -58,7 +83,14 @@ module.exports = {
       classification: 'Business',
       studentsInterested: 5.5,
       rating: 5,
-      review: 227
+      review: 227,
+      effort: '3-6 hours a week',
+      duration: '11 weeks long',
+      startDate: new Date('Mon Apr 16 2018 00:00:00 GMT-0500 (CDT)'),
+      selfPaced: false,
+      withCertificate: false,
+      cost: 0,
+      tags: ['bitcoin', 'cryptocurrency', 'bitcoin and cryptocurrency']      
     },{
       name: 'Marketing in a Digital World',
       institution: 'University of Illinois at Urbana Champaign',
@@ -67,7 +99,14 @@ module.exports = {
       classification: 'Health',
       studentsInterested: 18.2,
       rating: 4,
-      review: 162
+      review: 162,
+      effort: '6-8 hours a week',
+      duration: '4 weeks long',
+      startDate: new Date('Wed May 2 2018 00:00:00 GMT-0500 (CDT)'),
+      selfPaced: false,
+      withCertificate: true,
+      cost: 0,
+      tags: ['marketing', 'digital', 'marketing in a digital world']      
     }];
     CourseModel.remove({},  function(err, course){
       if(err) {
