@@ -4,7 +4,6 @@ var bcrypt = require('bcryptjs');
 module.exports = {
   register: function(req, res, next){
     console.log('inside register');
-    console.log(req);
     // Extract Input
     var name = req.body.name;
     var email = req.body.email;
@@ -26,11 +25,11 @@ module.exports = {
       });
     }else{
       console.log('inside error else');
-      var newUser = new User({
+      var newUser = new UserModel({
         name: name,
         email: email,
         password: password
-      })
+      });
       console.log(newUser);
       UserModel.save(newUser, function(err, user){
         if(err) {throw err; console.log(err);};
@@ -43,13 +42,12 @@ module.exports = {
   },
 
   login: function(req, res, next){
-    console.log('inside login');
-    console.log(req);    
+    console.log('inside login'); 
     var email = req.body.email;
     var password = req.body.password;  
     console.log(email+'-'+password);  
     var criteria = {email: email};
-    CourseModel.findOne(criteria, function(err, user){
+    UserModel.findOne(criteria, function(err, user){
       if(err) {
         console.log('inside error - '+err);
         res.render('login', {
