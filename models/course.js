@@ -19,7 +19,6 @@ const CourseSchema = new Schema({
   withCertificate: {type: Boolean, default: false},
   cost: {type: Number, default: 0},
   tags: {type: [], index: true}
-
 });
 
 /* Expose the Schema */

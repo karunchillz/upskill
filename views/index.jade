@@ -1,94 +1,57 @@
-doctype html
-html(lang="en")
-  head
-    meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
-    title Upskill
-    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
-    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
-    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
-    link(href="./css/home.css", rel="stylesheet")
-  body.home
-    // Navbar
-    nav#head-navbar.navbar
-      .container-fluid
-        a.navbar-brand(href="#")
-        ul.nav.navbar-nav.hide-small
-          li.dropdown
-            a.dropdown-toggle(data-toggle="dropdown", href="#") Courses
-              span.caret
-            ul.dropdown-menu
-              li
-                a(href="#") Computer Science
-              li
-                a(href="#") Business
-              li
-                a(href="#") Health
-        ul.nav.navbar-nav.pull-right
-          li
-            a(href="https://up-skill.herokuapp.com/users/register")
-              span.glyphicon.glyphicon-user
-              span.hide-small Sign Up
-          li
-            a(href="https://up-skill.herokuapp.com/users/login")
-              span.glyphicon.glyphicon-log-in
-              span.hide-small Login
-    // Search
-    section.jumbotron
-      .container-fluid
-        .row
-          .col-lg-4.col-md-4.col-sm-12.text-center
-            img(src="./images/home_mascot.png")
-          .col-lg-8.col-md-8.col-sm-12
-            .form-group.search-box
-              h3 What do you want to learn today ?
-              .input-group
-                input.form-control.input-lg(type="text", placeholder="Search courses, topics, questions ...")
-                .input-group-btn
-                  button.btn.btn-default.input-lg(type="submit")
-                    i.glyphicon.glyphicon-search
-              h4 Popular Search terms:
-              .btn-group
-                button.btn.btn-primary(type="button") Business Strategy
-                button.btn.btn-primary(type="button") Machine Learning
-                button.btn.btn-primary(type="button") Artificial Intelligence
-                button.btn.btn-primary(type="button") Project Management
-    // Popular Courses
-    .courses
-      .container
-        h2 Popular Online Courses
-        ul.list-inline.topic-list
-          li.active
-            a(href="#") All
-          li
-            a(href="#") Computer Science
-          li
-            a(href="#") Business
-          li
-            a(href="#") Health
-        .card-group
-          each course in courseList
-            .card.col-md-3.col-sm-12.grow
-              .container-fluid
-                .row
-                  .card-subtitle.col-sm-8.text-left #{course.institution}
-                  .card-subtitle.col-sm-4.text-right #{course.platform}
-                h4.card-title
-                  a(href="#{course.url}") #{course.name}
-                br
-                .row
-                  .card-text.col-sm-6.text-left
-                    span.first-letter #{course.studentsInterested}k
-                    span Students
-                  .card-text.col-sm-6.text-right
-                    each val in [1,2,3,4,5]
-                      if val <= course.rating
-                        span.fa.fa-star.checked
-                      else
-                        span.fa.fa-star
-                    p #{course.reviews} reviews
-    // Footer
-    footer.text-center
-      .container
-        p © Designed by Team 7
+extends layout
+
+block content
+// Search
+  section.jumbotron
+    .container-fluid
+      .row
+        .col-lg-4.col-md-4.col-sm-12.text-center
+          img(src="./images/home_mascot.png")
+        .col-lg-8.col-md-8.col-sm-12
+          .form-group.search-box
+            h3 What do you want to learn today ?
+            .input-group
+              input.form-control.input-lg(type="text", placeholder="Search courses, topics, questions ...")
+              .input-group-btn
+                button.btn.btn-default.input-lg(type="submit")
+                  i.glyphicon.glyphicon-search
+            h4 Popular Search terms:
+            .btn-group
+              button.btn.btn-primary(type="button") Business Strategy
+              button.btn.btn-primary(type="button") Machine Learning
+              button.btn.btn-primary(type="button") Artificial Intelligence
+              button.btn.btn-primary(type="button") Project Management
+  // Popular Courses
+  .courses
+    .container
+      h2 Popular Online Courses
+      ul.list-inline.topic-list
+        li.active
+          a(href="#") All
+        li
+          a(href="#") Computer Science
+        li
+          a(href="#") Business
+        li
+          a(href="#") Health
+      .card-group
+        each course in courseList
+          .card.col-md-3.col-sm-12.grow
+            .container-fluid
+              .row
+                .card-subtitle.col-sm-8.text-left #{course.institution}
+                .card-subtitle.col-sm-4.text-right #{course.platform}
+              h4.card-title
+                a(href="#{course.url}") #{course.name}
+              br
+              .row
+                .card-text.col-sm-6.text-left
+                  span.first-letter #{course.studentsInterested}k
+                  span Students
+                .card-text.col-sm-6.text-right
+                  each val in [1,2,3,4,5]
+                    if val <= course.rating
+                      span.fa.fa-star.checked
+                    else
+                      span.fa.fa-star
+                  p #{course.reviews} reviews
