@@ -13,6 +13,18 @@ module.exports = {
     });
   },
 
+  searchCourses: function(req, res, next){
+    const criteria = {tags:{$in:['machine', 'learning', 'mind', 'bitcoin']}};
+    CourseModel.find(criteria, function(err, courses){
+      if(err) {
+          return res.status(500).json({
+              message: 'Error getting course.'+err
+          });
+      }
+      return res.json(courses);
+    });
+  },  
+
   populate: function(req, res, next){
     var courseData = [{
       name: 'Machine Learning',

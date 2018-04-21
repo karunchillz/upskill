@@ -12,4 +12,9 @@ router.get('/populate', function(req, res, next) {
   courseController.populate(req, res, next);
 });
 
+/* GET search results. */
+router.get('/search', function(req, res, next) {
+  courseController.searchCourses(req, res, next);
+});
+
 module.exports = router;

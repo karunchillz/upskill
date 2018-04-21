@@ -4,18 +4,22 @@ const Schema = mongoose.Schema;
 
 /* Course Schema */
 const CourseSchema = new Schema({
-  name: {type: String, default: '', trim: true, index: true},
-  institution: {type: String, default: '', trim: true},
-  platform: {type: String, default: '', trim: true},
-  url: {type: String, default: '', trim: true},
-  classification: {type: String, default: '', trim: true, index: true},
-  tags: {type: [], index: true},
-  startDate: {type: Schema.Types.Mixed},
-  duration: {type: String, default: '', trim: true},
-  effort: {type: String, default: '', trim: true},
+  name: {type: String, trim: true, index: true},
+  institution: {type: String, trim: true},
+  platform: {type: String, trim: true},
+  url: {type: String, trim: true},
+  classification: {type: String, trim: true, index: true},
   studentsInterested: {type: Number, default: 0},
   rating: {type: Number, default: 0},
-  review: {type: Number, default: 0}
+  review: {type: Number, default: 0},
+  effort: {type: String, trim: true},
+  duration: {type: String, trim: true},
+  startDate: {type: Date},
+  selfPaced: {type: Boolean, default: false},
+  withCertificate: {type: Boolean, default: false},
+  cost: {type: Number, default: 0},
+  tags: {type: [], index: true}
+
 });
 
 /* Expose the Schema */
