@@ -58,27 +58,18 @@ passport.use(new LocalStrategy(function(inputEmail, inputPassword, done){
 
 
 router.post('/register', function(req, res, next) {
-	
 	var inputName = req.body.inputName;
 	var inputEmail = req.body.inputEmail;
 	var inputPassword = req.body.inputPassword;
-	var inputVerify = req.body.inputVerify;
+	var inputVerify = req.body.inputVerify;	
 	
-	// Check Errors
-	
-
-
-//form Validator 
-
+	// Form Validator 
 	req.checkBody('inputName', 'Name field is required!').notEmpty();
 	req.checkBody('inputEmail', 'email field is required!').notEmpty();
 	req.checkBody('inputEmail', 'email field is required!').isEmail();
 	req.checkBody('inputPassword', 'Passwprd is required!').notEmpty();
 	req.checkBody('inputVerify', 'passwords do not match').equals(req.body.inputPassword);
-
 	var errors = req.validationErrors();
-
- 
 	if(errors){
 		res.render('register', {
 			errors: errors
@@ -90,17 +81,14 @@ router.post('/register', function(req, res, next) {
 			inputEmail: inputEmail,
 			inputPassword: inputPassword
 		})
-
 		User.createUser(newUser, function(err, user){
 			if(err) throw err;
 			console.log(user)
 		});
-
 		req.flash('success','Congrats You are registerd :)');
 		res.location('/');
 		res.redirect('/');
 	}
-
 });
 
   

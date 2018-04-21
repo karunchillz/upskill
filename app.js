@@ -11,40 +11,32 @@ var LocalStrategy = require('passport-local').Strategy;
 var expressValidator = require('express-validator');
 var flash = require('connect-flash');
 var bcrypt = require('bcryptjs');
-var mongo = require('mongodb');
+
+// MongoDB connection
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://dbuser:dbpwd@ds229549.mlab.com:29549/upskill');
-// Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
-//Get the default connection
 var db = mongoose.connection;
-//Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-
-
+// Router logic
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+// Express setup
 var app = express();
-
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
 
 //handle sessions
 app.use(session({

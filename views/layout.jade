@@ -1,48 +1,42 @@
 doctype html
-html(lang='en')
+html(lang="en")
   head
-    title Welcome
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
-    link(rel='stylesheet', href='/css/style.css')
-  body
-    // ------------------------------------------HEADER--------------------------------------------------------
-    .container 
-     nav.navbar.navbar-expand-sm.bg-white.navbar-light.navbar-static-top.fixed-top
-      // Upskill Logo
-      a.navbar-brand(href='#')
-        img(src='/images/logo_old.png', alt='logo', style='width:70px;')
-      // links
-      ul.navbar-nav.mr-auto
-        // dropdown courses
-        li.nav-item.dropdown
-          a#navbardrop.nav-link.dropdown-toggle.text-primary.font-weight-bold(href='#', data-toggle='dropdown') Courses
-          .dropdown-menu
-            a.dropdown-item(href='#') Link 1
-            a.dropdown-item(href='#') Link 2
-            a.dropdown-item(href='#') Link 3
-      // END OF dropdown courses
-      // login and signup links to the right wtih ml-auto
-      ul.navbar-nav.ml-auto
-        li.nav-item(class=(title == 'Login' ? 'active' : ''))
-          a.nav-link.text-primary.font-weight-bold(href='/users/login') Login
-        li.nav-item(class=(title == 'Members' ? 'active' : ''))
-          a.nav-link.text-primary.font-weight-bold(href='/') Members
-        li.nav-item
-          a.nav-link.disabled(href='#') or
-        li.nav-item(class=(title == 'Register' ? 'active' : ''))
-          a.nav-link.text-primary.font-weight-bold(href='/users/register') Sign-up
-   .container
-   .row
-   .container.py-5.text-center
-    ul.list-inline.text-center
-    //!= messages()
-   .container
+    meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    title Upskill
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    link(href="./css/home.css", rel="stylesheet")
+  body.home
+    // Header
+    nav#head-navbar.navbar
+      .container-fluid
+        a.navbar-brand(href="#")
+        ul.nav.navbar-nav.hide-small
+          li.dropdown
+            a.dropdown-toggle(data-toggle="dropdown", href="#") Courses
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Computer Science
+              li
+                a(href="#") Business
+              li
+                a(href="#") Health
+        ul.nav.navbar-nav.pull-right
+          li
+            a(href="https://up-skill.herokuapp.com/users/register")
+              span.glyphicon.glyphicon-user
+              span.hide-small Sign Up
+          li
+            a(href="https://up-skill.herokuapp.com/users/login")
+              span.glyphicon.glyphicon-log-in
+              span.hide-small Login
+    // Content
     block content
-
-   script(src='https://ajax.googleapis.com/ajax/libs/jquery.1.11.1/jquery.in.js')
-   script(src='js/bootstrap.js')
+    // Footer
+    footer.text-center
+      .container
+        p © Designed by Team 7
