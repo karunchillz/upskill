@@ -38,7 +38,7 @@ jspm_packages/
 
 # Others
 temp/
-bin/
+bin
 
 # TypeScript v1 declaration files
 typings/

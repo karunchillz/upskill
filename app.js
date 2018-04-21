@@ -38,6 +38,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+//handle sessions
+app.use(session({
+    secret:'secret',
+    saveUninitialized: true,
+    resave: true
+}));
+
+//Validator
+app.use(expressValidator());
 
 app.use(require('connect-flash')());
 app.use(function (req, res, next) {
