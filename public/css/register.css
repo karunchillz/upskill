@@ -1,7 +1,7 @@
 .container {
   background: linear-gradient(to right, #E2E9FD, #F4FCFF);
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
   margin: 2% 5%;
    
 }
