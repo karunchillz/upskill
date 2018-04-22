@@ -1,6 +1,17 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+.home
+    section.jumbotron
+      .container-fluid
+        .row
+          .col-lg-4.col-md-4.col-sm-12.text-center
+            img(src="./images/11.png")
+          .col-lg-8.col-md-8.col-sm-12
+            .form-group.search-box
+              h3 What do you want to learn today ?
+              .input-group
+                input.form-control.input-lg(type="text", placeholder="Search courses, topics, questions ...")
+                .input-group-btn
+                  button.btn.btn-default.input-lg(type="submit")
+                    i.glyphicon.glyphicon-search
