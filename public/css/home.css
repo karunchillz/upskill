@@ -67,3 +67,13 @@
 .home .grow:hover { 
   transform: scale(1.1); 
 }
+
+.home footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: linear-gradient(to right, #D7DFFF , #EAF9FF);
+}
+
+.home footer p {
+  margin-bottom: .25rem;
+}
