@@ -37,14 +37,14 @@ router.post('/search', function(req, res, next){
   courseController.search(req, res, next);	
 });
 
+// Get search results.
+router.get('/search', function(req, res, next) {
+  courseController.searchWithClassification(req, res, next);
+});
+
 // Populate database with data.
 router.get('/populate', function(req, res, next) {
   courseController.populate(req, res, next);
-});
-
-// Get search results.
-router.get('/search', function(req, res, next) {
-  courseController.searchCourses(req, res, next);
 });
 
 // Error page.

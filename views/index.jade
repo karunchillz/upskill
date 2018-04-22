@@ -26,15 +26,6 @@ block content
     .courses
       .container
         h2 Popular Online Courses
-        ul.list-inline.topic-list
-          li.active
-            a(href="#") All
-          li
-            a(href="#") Computer Science
-          li
-            a(href="#") Machine Learning
-          li
-            a(href="#") Programming
         .card-group
           each course in courseList
             .card.col-md-4.col-sm-12.grow
@@ -43,11 +34,11 @@ block content
                   .card-subtitle.col-sm-8.text-left #{course.institution}
                   .card-subtitle.col-sm-4.text-right #{course.platform}
                 h4.card-title
-                  a(href="#{course.url}") #{course.name}
+                  a(href="#{course.url}", target="_blank") #{course.name}
                 br
                 .row
                   .card-text.col-sm-6.text-left
-                    span.first-letter #{course.studentsInterested}k
+                    span.first-letter #{course.studentsInterested}k &nbsp;
                     span Students
                   .card-text.col-sm-6.text-right
                     each val in [1,2,3,4,5]

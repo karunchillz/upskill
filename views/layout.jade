@@ -22,17 +22,17 @@ html(lang="en")
               span.caret
             ul.dropdown-menu
               li
-                a(href="#") Computer Science
+                a(href="/search?term=Computer Science") Computer Science
               li
-                a(href="#") Machine Learning
+                a(href="/search?term=Machine Learning") Machine Learning
               li
-                a(href="#") Programming
+                a(href="/search?term=Programming") Programming
               li
-                a(href="#") Art & Design
+                a(href="/search?term=Art %26 Design") Art & Design
               li
-                a(href="#") Engineering
+                a(href="/search?term=Engineering") Engineering
               li
-                a(href="#") Education & Teaching                                                
+                a(href="/search?term=Education %26 Teaching") Education & Teaching                                                
         ul.nav.navbar-nav.pull-right
           if (typeof(session) !== 'undefined' && typeof(session.user) !== 'undefined')
             li

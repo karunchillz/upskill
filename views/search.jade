@@ -2,40 +2,23 @@ extends layout
 
 block content
   .container.search
-    h2 Search Results for "#{term}"
+    if specialSearch
+      h3.search-title Courses under category "#{term}"
+    else
+      h3.search-title Search Results for "#{term}"
     .col-lg-3.col-md-3.hide-small.options-col
-      ul
-        li
-          input(type="checkbox") 
-          | &nbsp;With Certificate
-      ul
-        | By Start Date
-        li
-          input(type="checkbox") 
-          | &nbsp;Starting soon
-        li
-          input(type="checkbox") 
-          | &nbsp;In Progress
-        li
-          input(type="checkbox") 
-          | &nbsp;Future Courses
-        li
-          input(type="checkbox") 
-          | &nbsp;Self Paced
-      ul
-        | By Subject
-        li
-          input(type="checkbox") 
-          | &nbsp;Computer Science
-        li
-          input(type="checkbox") 
-          | &nbsp;Business
-        li
-          input(type="checkbox") 
-          | &nbsp;Health
-        li
-          input(type="checkbox") 
-          | &nbsp;Science
+      input(type="hidden", name="term", value="#{term}")
+      each value,key in filterObject
+        ul(title="#{key}")
+          each filterOption in value
+            if filterOption.disabled
+              li.disabled
+                input(type="#{filterOption.type}", name="#{filterOption.name}", disabled="#{filterOption.disabled}") 
+                | &nbsp;#{filterOption.name} (#{filterOption.count})
+            else
+              li
+                input(type="#{filterOption.type}", name="#{filterOption.name}") 
+                | &nbsp;#{filterOption.name} (#{filterOption.count})
     .col-lg-9.col-md-9.col-sm-12.content-col
       .row
         .col-lg-8.col-md-8.col-sm-10
@@ -45,11 +28,12 @@ block content
         .col-lg-2.col-md-2.hide-small
           h5 Rating
       each course in courseList
-        .row.grow
+        - var classes = 'row course-card grow '+course.tags;
+        div(class=classes)
           .col-lg-8.col-md-8.col-sm-12
             h5.course-institiution #{course.institution}
             h4.course-title 
-              a(href="#{course.url}") #{course.name}
+              a(href="#{course.url}", target="_blank") #{course.name}
             p.course-details 
               if course.platform
                 | #{course.platform}

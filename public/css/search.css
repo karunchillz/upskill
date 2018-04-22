@@ -1,12 +1,33 @@
+.search .search-title {
+	padding: 10px;
+}
+
 .search .options-col {
 	background-color: lightgrey; 
 	padding:2%;
+	margin-bottom: 10px;
 }
 
 .search .options-col ul{
 	list-style-type: none;
 	background-color: white;
 	padding:5%; 
+}
+
+.search .options-col ul[title]::before {
+    content: attr(title);
+	color: #6874EE;
+	font-weight: bold;
+	border-bottom: 1px solid blue;
+}
+
+.search .options-col li {
+	padding:2%;
+	text-transform: capitalize;
+}
+
+.search .options-col li.disabled {
+	color: lightgrey; 
 }
 
 .search .content-col{
@@ -37,6 +58,16 @@
 
 .search .checked {
     color: orange;
+}
+
+.search .progress {
+    height: inherit;
+    margin-bottom: inherit;
+    overflow: inherit;
+    background-color: inherit;
+    border-radius: inherit;
+    -webkit-box-shadow: inherit;
+    box-shadow: inherit;
 }
 
 footer {

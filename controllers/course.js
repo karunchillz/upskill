@@ -1,22 +1,22 @@
 var fs = require("fs");
 var path = require('path');
 var CourseModel = require('../models/course.js');
+var HelperUtil = require('../util/helper.js');
 
 module.exports = {
   findTopCourses: function(req, res, next){
-    const criteria = {};//{classification: classification || 'Business'};
-    CourseModel.find(criteria, function(err, courses){
+    CourseModel.find({}, function(err, courses){
       if(err) {
           return res.status(500).json({
               message: 'Error getting course.'+err
           });
       }
       res.render('index', { page:'home', courseList: courses });
-    }).sort({'rating': -1}).limit(6);
+    }).sort({'rating': -1}).limit(9);
   },
 
   search: function(req, res, next){
-    var searchTerm = req.body.term; 
+    var searchTerm = req.body.term;
     const criteria = {tags:{$in:searchTerm.split(' ')}};
     CourseModel.find(criteria, function(err, courses){
       if(err) {
@@ -24,20 +24,27 @@ module.exports = {
               message: 'Error getting course.'+err
           });
       }
-      res.render('search', { page:'search', term: searchTerm, courseList: courses });
-    }).sort({'rating': -1}).limit(10);
+      var resultObject = HelperUtil.analyzeResults(courses);
+      var updatedCourses = resultObject['Courses'];
+      delete resultObject['Courses'];
+      res.render('search', { page:'search', term: searchTerm, filterObject: resultObject, courseList:  updatedCourses});
+    }).sort({'rating': -1});
   },
 
-  searchCourses: function(req, res, next){
-    const criteria = {tags:{$in:['machine', 'learning', 'mind', 'bitcoin']}};
+  searchWithClassification: function(req, res, next){
+    var classification = req.query.term;
+    const criteria = {classification: classification};
     CourseModel.find(criteria, function(err, courses){
       if(err) {
           return res.status(500).json({
               message: 'Error getting course.'+err
           });
       }
-      return res.json(courses);
-    });
+      var resultObject = HelperUtil.analyzeResults(courses);
+      var updatedCourses = resultObject['Courses'];
+      delete resultObject['Courses'];
+      res.render('search', { page:'search', specialSearch: true, term: classification, filterObject: resultObject, courseList:  updatedCourses});
+    }).sort({'rating': -1});
   },
 
   populate: function(req, res, next){
@@ -53,24 +60,6 @@ module.exports = {
       }      
       filteredCourseData.push(course);
     });
-    var wordsMap = {};
-    var classificationMap = {};
-    filteredCourseData.forEach(function(course){
-      course.tags.forEach(function(tag){
-        if(wordsMap.hasOwnProperty(tag)){
-          wordsMap[tag]++;
-        }else{
-          wordsMap[tag]=1;
-        }
-      });
-      if(classificationMap.hasOwnProperty(course.classification)){
-        classificationMap[course.classification]++;
-      }else{
-        classificationMap[course.classification]=1;
-      }
-    });
-    console.log(wordsMap);
-    console.log(classificationMap);
     CourseModel.remove({},  function(err, course){
       if(err) {
           return res.status(500).json({
