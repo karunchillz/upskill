@@ -43,4 +43,9 @@ router.get('/search', function(req, res, next) {
   courseController.searchCourses(req, res, next);
 });
 
+// Error page.
+router.get('/error', function(req, res, next) {
+  res.render('error', {page:'error'});
+});
+
 module.exports = router;
