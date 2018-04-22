@@ -1,20 +1,22 @@
 extends layout
 
 block content 
- .container.py-5
+ .container.py-5.register
   .row
     .col-md-12
       h2.text-center.mb-5 Register
       if errors
        each error, i in errors
         div.alert.alert-danger #{error.msg}
+      if message
+        div.alert.alert-danger #{message}        
   .row
-    .col-md-6.mx-auto
+    .col-md-6.mx-auto.center-div
       .card.border-secondary
         .card-header
           h3.mb-0.my-2 Register
         .card-body
-          form#formRegister.form(role='form', autocomplete='off', novalidate='', method='POST', action='/users/register')
+          form#formRegister.form(role='form', autocomplete='off', novalidate='', method='POST', action='/register')
             .form-group
               label(for='inputName') Name
               input#inputName.form-control.form-control-lg.rounded-0(type='text', name='name', placeholder='First and Last Name', required='')

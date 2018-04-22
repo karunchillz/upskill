@@ -2,70 +2,62 @@ var UserModel = require('../models/user.js');
 
 module.exports = {
   register: function(req, res, next){
-    console.log('inside register');
-    // Extract Input
     var name = req.body.name;
     var email = req.body.email;
     var password = req.body.password;
-    var verify = req.body.verify; 
-    console.log(name+'-'+email+'-'+password+'-'+verify);
-    // Form Validator 
-    req.checkBody('name', 'Name field is required!').notEmpty();
-    req.checkBody('email', 'email field is required!').notEmpty();
-    req.checkBody('email', 'email field is required!').isEmail();
-    req.checkBody('password', 'Passwprd is required!').notEmpty();
-    req.checkBody('verify', 'passwords do not match').equals(password);
+    var verify = req.body.verify;
+    // Form Validator
+    req.checkBody('name', 'Name is required!').notEmpty();
+    req.checkBody('email', 'Email is required!').notEmpty();
+    req.checkBody('email', 'Email format is incorrect!').isEmail();
+    req.checkBody('password', 'Password is required!').notEmpty();
+    req.checkBody('verify', 'Passwords do not match!').equals(password);
     var errors = req.validationErrors();
     if(errors){
-      console.log('inside error');
-      console.log(errors);
-      res.render('register', { errors: errors });
+      res.render('register', { page: 'register', errors: errors });
     }else{
-      console.log('inside error else');
-      var newUser = {
-        name: name,
-        email: email,
-        password: password
-      };
-      console.log(newUser);
+      var newUser = { name: name, email: email, password: password };
       UserModel.create(newUser, function(err, user){
-        if(err) {
-          console.log(err);
-          throw err;
+        if(err || user === null) {
+          res.render('register', { page: 'register', message: 'User already exists! Kindly try with a different credential' });
         };
-        console.log(user)
       });
-      console.log(req.session);
       req.session.user = newUser.name;
       res.redirect('/');
     }
   },
 
-  login: function(req, res, next){
-    console.log('inside login'); 
+  login: function(req, res, next){ 
     var email = req.body.email;
-    var password = req.body.password;  
-    console.log(email+'-'+password);  
-    var criteria = {email: email};
-    UserModel.findOne(criteria, function(err, user){
-      if(err) {
-        console.log('inside error - '+err);
-        res.render('login', {
-          errors: 'Username does not exist'
-        });
-      }else{
-        console.log('inside error else');
-        var pass = user.password;
-        if(password != pass){
-          console.log('inside password not match');
-          res.render('login', {
-            errors: 'Username/Passwprd does not match'
-          });
-        }  
-        console.log(req.session); 
-        req.session.user = user.name;
-        res.redirect('/');        
-      }
-    });
-  }  
+    var password = req.body.password;
+    // Form Validator
+    req.checkBody('email', 'Email is required!').notEmpty();
+    req.checkBody('email', 'Email format is incorrect!').isEmail();
+    req.checkBody('password', 'Password is required!').notEmpty();
+    var errors = req.validationErrors();
+    if(errors){
+      res.render('login', { page: 'login', errors: errors });
+    }else{
+      var criteria = {email: email};
+      UserModel.findOne(criteria, function(err, user){
+        console.log(user);
+        if(err || user == null) {
+          res.render('login', { page: 'login', message: 'Username does not exist!' });
+        }else{
+          var pass = user.password;
+          if(password != pass){
+            res.render('login', { page: 'login', message: 'Username/Password does not match!' });         
+          } 
+          req.session.user = user.name;
+          res.redirect('/');      
+        }
+      });
+    }
+  },
+
+  logout: function(req, res, next){
+     req.session.destroy(function(){
+        res.render('login', { page: 'login', message: 'User successfully logged out!' }); 
+     });   
+   }
 };

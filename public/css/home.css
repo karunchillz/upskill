@@ -1,27 +1,3 @@
-.home a {
-  color: #6874EE;
-}
-
-.home .navbar {
-  margin-bottom: 0;
-}
-
-.home .navbar-brand {
-    position: relative;
-    background: url('../images/logo_old.png') no-repeat scroll center center / contain;
-    width: 170px;
-    left: 15px;
-    background-size: contain;
-}
-
-.home .navbar .pull-right li a{
-  color: #6874EE !important;
-}
-
-.home .nav>li {
-  display: inline-block;
- }
-
 .home .jumbotron {
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -84,36 +60,10 @@
   font-size: 1.4em;
 }
 
-.home footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  background: linear-gradient(to right, #D7DFFF , #EAF9FF);
-}
-
-.home footer p {
-  margin-bottom: .25rem;
-}
-
 .home .grow { 
   transition: all .2s ease-in-out; 
 }
 
 .home .grow:hover { 
   transform: scale(1.1); 
-}
-
-@media screen and (max-width:768px)
-{
-  .home .navbar-brand {
-    width: 75px;
-  }
-  .home .hide-small{
-    display: none;
-  }  
-}
-
-@media (min-width: 992px) {
-  .home .col-md-3 {
-      width: 30%;
-  }
 }

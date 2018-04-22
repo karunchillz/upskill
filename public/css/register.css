@@ -1,29 +1,30 @@
-
-.register a {
-  color: #6874EE;
-  
+.container {
+  background: linear-gradient(to right, #E2E9FD, #F4FCFF);
+  height: 100%;
+  overflow: auto;
+  margin: 2% 5%;
+   
 }
 
-
-.register .navbar {
-  margin-bottom: 0;
+ul.success li{
+  padding:15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
 }
 
-.register .navbar-brand {
-    position: relative;
-    background: url('../images/logo_old.png') no-repeat scroll center center / contain;
-    width: 170px;
-    left: 15px;
-    background-size: contain;
+ul.error li{
+  padding:15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
 }
-
-.register .navbar .pull-right li a{
-  color: #6874EE !important;
-}
-
-.register .nav>li {
-  display: inline-block;
- }
 
 .register .main_content{
 	background: linear-gradient(to right, #E2E9FD, #F4FCFF);
@@ -33,13 +34,6 @@
     padding-left: 1.5rem;
     padding-bottom:0;
 	margin:auto; 
-}
-
- 
-.register footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  background: linear-gradient(to right, #D7DFFF , #EAF9FF);
 }
 
 .register .col-centered{
@@ -54,24 +48,7 @@
 	border-radius:0.5rem;
 }
 
-
-.register footer p {
-  margin-bottom: .25rem;
+.register .center-div{
+  margin: 0 auto;
+  float: none;
 }
-
-@media screen and (max-width:768px)
-{
-  .register .navbar-brand {
-    width: 75px;
-  }
-  .register .hide-small{
-    display: none;
-  }  
-}
-
-@media (min-width: 992px) {
-  .register .col-md-3 {
-      width: 30%;
-  }
-}
-

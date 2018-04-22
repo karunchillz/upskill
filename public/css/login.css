@@ -1,33 +1,34 @@
-
-.login a {
-  color: #6874EE;
-  
+.container {
+  background: linear-gradient(to right, #E2E9FD, #F4FCFF);
+  height: 100%;
+  overflow: auto;
+  margin: 2% 5%;
+   
 }
 
-
-.login .navbar {
-  margin-bottom: 0;
+ul.success li{
+  padding:15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
 }
 
-.login .navbar-brand {
-    position: relative;
-    background: url('../images/logo_old.png') no-repeat scroll center center / contain;
-    width: 170px;
-    left: 15px;
-    background-size: contain;
+ul.error li{
+  padding:15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
 }
-
-.login .navbar .pull-right li a{
-  color: #6874EE !important;
-}
-
-.login .nav>li {
-  display: inline-block;
- }
 
 .login .main_content{
 	background: linear-gradient(to right, #E2E9FD, #F4FCFF);
-    overflow: auto;
+  overflow: auto;
 	display:block;
 	padding-left:1.5rem;
 	padding-right:1.5rem;
@@ -47,31 +48,8 @@
 	border-radius:0.5rem;
 }
 
- 
-.login footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  background: linear-gradient(to right, #D7DFFF , #EAF9FF);
-}
-
-.login footer p {
-  margin-bottom: .25rem;
-}
-
-@media screen and (max-width:768px)
-{
-  .login .navbar-brand {
-    width: 75px;
-  }
-  .login .hide-small{
-    display: none;
-  }  
-}
-
-
-@media (min-width: 992px) {
-  .login .col-md-3 {
-      width: 30%;
-  }
+.login .center-div{
+  margin: 0 auto;
+  float: none;
 }
 

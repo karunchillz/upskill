@@ -8,8 +8,9 @@ html(lang="en")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
-    link(href="./css/home.css", rel="stylesheet")
-  body.home
+    link(href="./css/style.css", rel="stylesheet")
+    link(href="./css/#{page}.css", rel="stylesheet")
+  body
     // Header
     nav#head-navbar.navbar
       .container-fluid
@@ -28,25 +29,25 @@ html(lang="en")
         ul.nav.navbar-nav.pull-right
           if (typeof(session) !== 'undefined' && typeof(session.user) !== 'undefined')
             li
-              a(href="https://up-skill.herokuapp.com/profile")
+              a(href="/profile")
                 span.glyphicon.glyphicon-user
                 span.hide-small #{session.user}          
             li
-              a(href="https://up-skill.herokuapp.com/logout")
+              a(href="/logout")
                 span.glyphicon.glyphicon-log-in
                 span.hide-small Logout
           else
             li
-              a(href="https://up-skill.herokuapp.com/register")
+              a(href="/register")
                 span.glyphicon.glyphicon-user
                 span.hide-small Sign Up
             li
-              a(href="https://up-skill.herokuapp.com/login")
+              a(href="/login")
                 span.glyphicon.glyphicon-log-in
                 span.hide-small Login
     // Content
     block content
     // Footer
     footer.text-center
-      .container
+      .container-fluid
         p © Designed by Team 7
