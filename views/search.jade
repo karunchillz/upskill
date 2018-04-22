@@ -1,0 +1,61 @@
+extends layout
+
+block content
+  .container.search
+    h2 Search Results for "#{term}"
+    .col-lg-3.col-md-3.hide-small.options-col
+      ul
+        li
+          input(type="checkbox") 
+          | &nbsp;With Certificate
+      ul
+        | By Start Date
+        li
+          input(type="checkbox") 
+          | &nbsp;Starting soon
+        li
+          input(type="checkbox") 
+          | &nbsp;In Progress
+        li
+          input(type="checkbox") 
+          | &nbsp;Future Courses
+        li
+          input(type="checkbox") 
+          | &nbsp;Self Paced
+      ul
+        | By Subject
+        li
+          input(type="checkbox") 
+          | &nbsp;Computer Science
+        li
+          input(type="checkbox") 
+          | &nbsp;Business
+        li
+          input(type="checkbox") 
+          | &nbsp;Health
+        li
+          input(type="checkbox") 
+          | &nbsp;Science
+    .col-lg-9.col-md-9.col-sm-12.content-col
+      .row
+        .col-lg-8.col-md-8.col-sm-10
+          h5 Course Name
+        .col-lg-2.col-md-2.hide-small
+          h5 Start Date	
+        .col-lg-2.col-md-2.col-sm-2
+          h5 Rating
+      each course in courseList
+        .row
+          .col-lg-8.col-md-8.col-sm-10
+            h5 #{course.institution}
+            h4 #{course.name}
+            p #{course.platform} - #{course.effort} - #{course.duration}
+          .col-lg-2.col-md-2.hide-small
+            p #{course.startDate}
+          .col-lg-2.col-md-2.col-sm-2
+            each val in [1,2,3,4,5]
+              if val <= course.rating
+                span.fa.fa-star.checked
+              else
+                span.fa.fa-star
+            p #{course.reviews} reviews

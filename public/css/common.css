@@ -22,7 +22,7 @@ a {
   color: #6874EE;
 }
 
-@media screen and (max-width:768px)
+@media screen and (max-width:576px)
 {
   .navbar-brand {
     width: 75px;
@@ -33,7 +33,7 @@ a {
 }
 
 @media (min-width: 992px) {
-  .col-md-3 {
+  .col-md-4 {
       width: 30%;
   }
 }

@@ -1,0 +1,25 @@
+.search .options-col {
+	background-color: lightgrey; 
+	padding:2%;
+}
+
+.search .options-col ul{
+	list-style-type: none;
+	background-color: white;
+	padding:5%; 
+}
+
+.search .content-col .row {
+	border: 1px solid #EAF9FF;
+}
+
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: linear-gradient(to right, #D7DFFF , #EAF9FF);
+}
+
+footer p {
+  margin-bottom: .25rem;
+}

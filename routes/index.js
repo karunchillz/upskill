@@ -33,6 +33,10 @@ router.post('/register', function(req, res, next) {
   userController.register(req, res, next);
 });
 
+router.post('/search', function(req, res, next){
+  courseController.search(req, res, next);	
+});
+
 // Populate database with data.
 router.get('/populate', function(req, res, next) {
   courseController.populate(req, res, next);
