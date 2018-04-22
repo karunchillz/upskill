@@ -9,17 +9,42 @@
 	padding:5%; 
 }
 
-.search .content-col .row {
-	border: 1px solid #EAF9FF;
+.search .content-col{
+	padding: 0 5%;
 }
 
+.search .content-col .row {
+  	padding: 1rem;
+  	margin-bottom: 2rem;
+  	margin-right: 2rem;	
+  	border: 2px solid #F0F8FF;
+  	box-shadow: 2px 2px 6px #F0F8FF;
+}
+
+.search .content-col .course-date {
+	width: 14ch;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.search .grow { 
+  	transition: all .2s ease-in-out; 
+}
+
+.search .grow:hover { 
+  	transform: scale(1.1); 
+}
+
+.search .checked {
+    color: orange;
+}
 
 footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  background: linear-gradient(to right, #D7DFFF , #EAF9FF);
+  	padding-top: 3rem;
+  	padding-bottom: 3rem;
+  	background: linear-gradient(to right, #D7DFFF , #EAF9FF);
 }
 
 footer p {
-  margin-bottom: .25rem;
+  	margin-bottom: .25rem;
 }

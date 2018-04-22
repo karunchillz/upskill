@@ -39,20 +39,30 @@ block content
     .col-lg-9.col-md-9.col-sm-12.content-col
       .row
         .col-lg-8.col-md-8.col-sm-10
-          h5 Course Name
+          h5 Course Information
         .col-lg-2.col-md-2.hide-small
           h5 Start Date	
-        .col-lg-2.col-md-2.col-sm-2
+        .col-lg-2.col-md-2.hide-small
           h5 Rating
       each course in courseList
-        .row
-          .col-lg-8.col-md-8.col-sm-10
-            h5 #{course.institution}
-            h4 #{course.name}
-            p #{course.platform} - #{course.effort} - #{course.duration}
-          .col-lg-2.col-md-2.hide-small
-            p #{course.startDate}
-          .col-lg-2.col-md-2.col-sm-2
+        .row.grow
+          .col-lg-8.col-md-8.col-sm-12
+            h5.course-institiution #{course.institution}
+            h4.course-title 
+              a(href="#{course.url}") #{course.name}
+            p.course-details 
+              if course.platform
+                | #{course.platform}
+              if course.effort   
+                | , #{course.effort}
+              if course.duration
+                | , #{course.duration}
+          .col-lg-2.col-md-2.col-sm-12
+            if course.selfPaced
+              p Self Paced
+            else
+              p.course-date #{course.startDate}
+          .col-lg-2.col-md-2.col-sm-2.col-sm-12
             each val in [1,2,3,4,5]
               if val <= course.rating
                 span.fa.fa-star.checked

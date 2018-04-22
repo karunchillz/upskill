@@ -8,6 +8,7 @@ html(lang="en")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    script(src="./js/common.js")
     link(href="./css/common.css", rel="stylesheet")
     link(href="./css/#{page}.css", rel="stylesheet")
   body
@@ -23,9 +24,15 @@ html(lang="en")
               li
                 a(href="#") Computer Science
               li
-                a(href="#") Business
+                a(href="#") Machine Learning
               li
-                a(href="#") Health
+                a(href="#") Programming
+              li
+                a(href="#") Art & Design
+              li
+                a(href="#") Engineering
+              li
+                a(href="#") Education & Teaching                                                
         ul.nav.navbar-nav.pull-right
           if (typeof(session) !== 'undefined' && typeof(session.user) !== 'undefined')
             li

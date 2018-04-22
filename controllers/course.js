@@ -1,4 +1,5 @@
 var fs = require("fs");
+var path = require('path');
 var CourseModel = require('../models/course.js');
 
 module.exports = {
@@ -11,7 +12,7 @@ module.exports = {
           });
       }
       res.render('index', { page:'home', courseList: courses });
-    });
+    }).sort({'rating': -1}).limit(6);
   },
 
   search: function(req, res, next){
@@ -24,7 +25,7 @@ module.exports = {
           });
       }
       res.render('search', { page:'search', term: searchTerm, courseList: courses });
-    });
+    }).sort({'rating': -1}).limit(10);
   },
 
   searchCourses: function(req, res, next){
@@ -40,18 +41,47 @@ module.exports = {
   },
 
   populate: function(req, res, next){
-    var courseData = JSON.parse(fs.readFileSync(__dirname + '/data/sample.json', 'utf-8'));
+    var jsonPath = path.join(__dirname, '..', 'data', 'course.json');
+    var courseData = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+    var filteredCourseData = new Array();
+    courseData.forEach(function(course){
+      if(typeof(course.tags) === 'string'){
+        course.tags = course.tags.split('[')[1].split(']')[0].split(' ');
+      }
+      if(typeof(course.studentsInterested) === 'string'){
+        course.studentsInterested = parseInt(course.studentsInterested);
+      }      
+      filteredCourseData.push(course);
+    });
+    var wordsMap = {};
+    var classificationMap = {};
+    filteredCourseData.forEach(function(course){
+      course.tags.forEach(function(tag){
+        if(wordsMap.hasOwnProperty(tag)){
+          wordsMap[tag]++;
+        }else{
+          wordsMap[tag]=1;
+        }
+      });
+      if(classificationMap.hasOwnProperty(course.classification)){
+        classificationMap[course.classification]++;
+      }else{
+        classificationMap[course.classification]=1;
+      }
+    });
+    console.log(wordsMap);
+    console.log(classificationMap);
     CourseModel.remove({},  function(err, course){
       if(err) {
           return res.status(500).json({
-              message: 'Error deleting courses.'
+              message: 'Error deleting courses.'+err
           });
       }
     });
-    CourseModel.insertMany(courseData, function(err, course){
+    CourseModel.insertMany(filteredCourseData, function(err, course){
       if(err) {
           return res.status(500).json({
-              message: 'Error getting course.'
+              message: 'Error getting course.'+err
           });
       }
       return res.json(course);

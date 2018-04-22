@@ -48,6 +48,9 @@
 .home .card-title {
   padding-bottom: 2rem;
   color: #6874EE;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
 }
 
 .home .card-subtitle {
