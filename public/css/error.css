@@ -1,0 +1,79 @@
+.error .jumbotron {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  margin-bottom: 0;
+  background: linear-gradient(to right, #6552BB , #1B1733);
+}
+
+.error .jumbotron .search-box {
+  color: white; 
+  font-size: 1.2em; 
+  padding: 5% 10%;
+}
+
+.error .btn-group .btn {
+	margin:10px;
+	border-radius: 20px !important;
+	background-color: #635C82;
+	border:none;
+}
+
+.error .courses {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.error .topic-list li {
+	font-size: 1.2em;
+}
+
+.error .topic-list li.active {
+	color: #6874EE;
+	text-decoration: underline;
+	padding:1rem;
+}
+
+.error .card {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+  border: 2px solid #F0F8FF;
+  box-shadow: 2px 2px 6px #F0F8FF;
+}
+
+.error .checked {
+    color: orange;
+}
+
+.error .card-title {
+  padding-bottom: 2rem;
+  color: #6874EE;
+}
+
+.error .card-subtitle {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.error .first-letter {
+  font-size: 1.4em;
+}
+
+.error .grow { 
+  transition: all .2s ease-in-out; 
+}
+
+.error .grow:hover { 
+  transform: scale(1.1); 
+}
+
+.error footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: linear-gradient(to right, #D7DFFF , #EAF9FF);
+}
+
+.error footer p {
+  margin-bottom: .25rem;
+}
