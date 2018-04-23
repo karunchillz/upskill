@@ -12,20 +12,6 @@
     background-size: contain;
 }
 
-.navbar .search-box {
-  color: white; 
-  font-size: 1.2em; 
-  padding: 5% 10%;
-}
-
-.navbar .btn-group .btn {
-	margin:10px;
-	border-radius: 20px !important;
-	background-color: #635C82;
-	border:none;
-}
-
-
 .navbar .pull-right li a{
   color: #6874EE !important;
 }
