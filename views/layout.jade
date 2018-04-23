@@ -36,7 +36,7 @@ html(lang="en")
         ul.nav.navbar-nav.pull-right
           if (typeof(session) !== 'undefined' && typeof(session.user) !== 'undefined')
             li
-              a(href="/profile")
+              a(href="/")
                 span.glyphicon.glyphicon-user
                 span.hide-small #{session.user}          
             li
