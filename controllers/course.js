@@ -1,9 +1,8 @@
-//This javascript runs to check whether a particular course exists or no
 var fs = require("fs");
 var path = require('path');
 var CourseModel = require('../models/course.js');
 var HelperUtil = require('../util/helper.js');
-// to Respond that something went wrong
+
 module.exports = {
   findTopCourses: function(req, res, next){
     CourseModel.find({}, function(err, courses){
@@ -14,7 +13,7 @@ module.exports = {
       }
     }).sort({'rating': -1}).limit(9);
   },
-//to Respond that the particular course searched is not present
+
   search: function(req, res, next){
     var searchTerm = req.body.term;
     const criteria = {tags:{$in:searchTerm.split(' ')}};
@@ -29,7 +28,7 @@ module.exports = {
       }
     }).sort({'rating': -1});
   },
-//Additional classification is not recognizable
+
   searchWithClassification: function(req, res, next){
     var classification = req.query.term;
     const criteria = {classification: classification};
