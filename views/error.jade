@@ -6,11 +6,13 @@ block content
     section.jumbotron
       .container-fluid
         .row
+		//sad smilie for baby-face bias
 		.col-lg-4.col-md-4.col-sm-12.text-center
             img(src="./images/error.png")
           .col-lg-8.col-md-8.col-sm-12
             .form-group.search-box
-			  h4 #{error}
+			//to prompt user to search something else
+              h4 #{error}
               .input-group
                 input.form-control.input-lg(type="text", placeholder="Search courses, topics, questions ...")
                 .input-group-btn
